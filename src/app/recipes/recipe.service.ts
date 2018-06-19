@@ -39,21 +39,25 @@ export class RecipeService {
 
     addRecipe(recipe: Recipe) {
         this.recipes.push(recipe);
-        this.recipesChanged.next(this.recipes.slice());
+        this.notifyChanges();
     }
 
     updateRecipe(index: number, newRecipe: Recipe) {
         this.recipes[index] = newRecipe;
-        this.recipesChanged.next(this.recipes.slice());
+        this.notifyChanges();
     }
 
     deleteRecipe(index: number) {
         this.recipes.splice(index, 1);
-        this.recipesChanged.next(this.recipes.slice());
+        this.notifyChanges();
     }
 
     setRecipes( recipes: Recipe[]) {
         this.recipes = recipes;
+        this.notifyChanges();
+    }
+
+    notifyChanges() {
         this.recipesChanged.next(this.recipes.slice());
     }
 }

@@ -21,7 +21,7 @@ export class DataStorageService {
             (response: Response) => {
                 const recipes: Recipe[] = response.json();
                 for (let recipe of recipes) {
-                    if (!recipe['ingredients']) {
+                    if (!recipe['ingredients']) { // if ingredients are empty it breaks the recipe contract
                         recipe['ingredients'] = [];
                     }
                 }

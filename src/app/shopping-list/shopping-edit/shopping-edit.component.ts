@@ -12,7 +12,7 @@ import { ShoppingListService } from '../shopping-list.service';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit, OnDestroy {
-  @ViewChild('f') slForm: NgForm;
+  @ViewChild('f') slForm: NgForm; // another way of getting NgForm
   subscrition: Subscription;
   editMode = false;
   editedItemIndex: number;
